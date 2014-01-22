@@ -3,15 +3,13 @@
  Program Assignment:  LinkedList.py                                                         
  Name:  Jhonatan Bazaldúa Oliva
  Date:  03 Sep 2013
- Description: Program that Give you an Average and standard Deviation with my own list
+ Description: It's a simple LinkedList 
 '''
 '''
 Class declarations:                                                                                            
     +Node
     +doublyLinkedList
-functions: 
-    +Average
-    +doublyLinkedList
+
 '''
 #BASE 0
 import math 
