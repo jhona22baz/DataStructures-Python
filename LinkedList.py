@@ -37,6 +37,7 @@ class  doublyLinkedList:
     def __init__(self):
         self.head = None
         self.Tail = None        
+    
     def addToFinish(self,dato):  
         nodo_nuevo = Node(dato)
         if self.head == None: 
@@ -44,13 +45,15 @@ class  doublyLinkedList:
         if self.Tail != None: 
             self.Tail.next = nodo_nuevo
         self.Tail = nodo_nuevo
+    
     def AddToInit(self, dato):
         nodo_nuevo = Node(dato)
         if self.head == None: 
             self.head = nodo_nuevo        
         if self.Tail != None: 
             nodo_nuevo.next = self.head 
-            self.head =  nodo_nuevo 
+        self.head =  nodo_nuevo 
+    
     def Delete(self,dataToDelete):
         node = self.head
         prev = node
@@ -62,8 +65,27 @@ class  doublyLinkedList:
                     prev.next = node.next
                 prev = node
                 node = node.next
+    
+    def __str__(self):
+        rtn = []
+        node = self.head
+        while node != None:
+            rtn.append(node.dato)
+            node=node.next
+        return str(rtn)
+        
     def printList(self):
         node = self.head
         while node != None:
-            print node.dato
+            print (node.dato)
             node = node.next    
+            
+            
+Lista = doublyLinkedList()
+Lista.addToFinish(4)
+Lista.addToFinish(5)
+Lista.AddToInit(6)
+Lista.addToFinish(8)
+Lista.addToFinish(34)
+
+print (Lista)

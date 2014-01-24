@@ -4,6 +4,14 @@ class UnorderedList():
     def __init__(self):
         self.head = None
     
+    def __str__(self):
+        current = self.head
+        selflist = []
+        while current != None:
+            selflist.append(current.getData())
+            current = current.getNext()
+        return str(selflist)
+        
     def isEmpty(self):
         return self.head == None
     
@@ -18,6 +26,7 @@ class UnorderedList():
         while current != None:
             count = count + 1
             current = current.getNext()
+            
             
         return count
     
@@ -47,6 +56,42 @@ class UnorderedList():
             else:
                 previous.setNext(current.getNext())
 
+    def append(self,item):
+        current = self.head
+        while current.getNext() != None:
+            current = current.getNext()
+        current.setNext(Node(item))
+        
+    def insert(self,pos,item):
+        current = self.head
+        previous = None
+        count = 0
+        newnode = Node(item)
+        while current.getNext() != None and not count == pos:
+            previous = current
+            current = current.getNext()
+            count = count + 1
+        
+        temp = Node(item)
+        if previous == None:
+            temp.setNext(self.head)
+            self.head = temp
+        else:
+            temp.setNext(current)
+            previous.setNext(temp)
+    
+    def index(self,item):
+        current = self.head
+        found = False
+        count = 0
+        while current != None and not found:
+            if current.getData()==item:
+                found = True
+            else:
+                current = current.getNext()
+                count = count + 1
+        return count 
+
 mylist = UnorderedList()
 
 mylist.add(31)
@@ -55,19 +100,14 @@ mylist.add(17)
 mylist.add(93)
 mylist.add(26)
 mylist.add(54)
+mylist.append(55)
+mylist.append(23)
+mylist.append(11)
+mylist.insert(3,999)
 
+print(mylist)
 print(mylist.size())
 print(mylist.search(93))
 print(mylist.search(100))
-
-mylist.add(100)
-print(mylist.search(100))
-print(mylist.size())
-
-mylist.remove(54)
-print(mylist.size())
-mylist.remove(93)
-print(mylist.size())
-mylist.remove(31)
-print(mylist.size())
 print(mylist.search(93))
+print(mylist.index(93))
