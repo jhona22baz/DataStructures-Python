@@ -44,7 +44,7 @@ class UnorderedList():
         current = self.head
         previous = None 
         found = False
-        while current != None and not found:
+        while not found:
             if current.getData() == item:
                 found = True
             else:
@@ -91,7 +91,6 @@ class UnorderedList():
                 current = current.getNext()
                 count = count + 1
         return count 
-
 mylist = UnorderedList()
 
 mylist.add(31)
@@ -100,14 +99,12 @@ mylist.add(17)
 mylist.add(93)
 mylist.add(26)
 mylist.add(54)
-mylist.append(55)
-mylist.append(23)
 mylist.append(11)
-mylist.insert(3,999)
-
+mylist.append(14)
+mylist.add(56)
+mylist.insert(2,555)
 print(mylist)
 print(mylist.size())
-print(mylist.search(93))
-print(mylist.search(100))
-print(mylist.search(93))
-print(mylist.index(93))
+mylist.remove(11)
+print(mylist)
+print(mylist.size())

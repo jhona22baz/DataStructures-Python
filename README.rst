@@ -8,7 +8,9 @@ Here are the basics Data Structures:
 - Stack
 - Deque
 - Queue
-- List
+- List  
+    - UnorderedList
+    - OrderedList
 
 Stack
   A stack is an ordered collection of items where the addition of new items and the removal of existing items always takes place at 
